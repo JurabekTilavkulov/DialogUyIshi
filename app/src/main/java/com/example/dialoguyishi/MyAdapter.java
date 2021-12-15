@@ -35,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {//p
     }
 
     public  void addItem(String ism, String izox){ // funksiya additem listga qo'shadi
-        list.add(new ModelClass(R.drawable.chayka,ism,izox));
+        list.add(new ModelClass(R.drawable.chayka,"ism","izox"));
         notifyDataSetChanged();
     }
 

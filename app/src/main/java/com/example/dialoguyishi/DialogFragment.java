@@ -16,15 +16,14 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class DialogFragment extends AppCompatDialogFragment {
    EditText name, discription;
-  Addmember listener;
+    Addmember listener;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
-
+        
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-
+        
         builder.setTitle("Add your section"); // title nome beramiz
 
         LayoutInflater inflater=getActivity().getLayoutInflater();
@@ -39,13 +38,12 @@ public class DialogFragment extends AppCompatDialogFragment {
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 Toast.makeText(inflater.getContext(),name.getText().toString()+"",Toast.LENGTH_LONG).show();
-                listener.addText(name.getText().toString()+"",discription.getText().toString()+""); // nul information?
+
+             //  listener.addText(name.getText().toString(),discription.getText().toString()); // nul information?
             }
         });
-
-
+        
         return builder.create();
     }
 
@@ -53,7 +51,8 @@ public class DialogFragment extends AppCompatDialogFragment {
     public void onAttach(@NonNull Context context) {  ///on creatde dan oldin ishlashni beradi
 
         try {
-            listener= (Addmember) context ;
+            if (context instanceof Addmember)
+            listener= (Addmember) context;
         }
         catch (Exception e){ //xatolik
             throw new ClassCastException("----"+context.toString()+"must implement ExampleDialogListener");

@@ -22,6 +22,14 @@ public class FragmentF extends Fragment implements DialogFragment.Addmember { //
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,11 +46,13 @@ public class FragmentF extends Fragment implements DialogFragment.Addmember { //
             public void onClick(View v) {
                 Toast.makeText(inflater.getContext(),"fab bosildi",Toast.LENGTH_LONG).show();
 
-                DialogFragment dialogFragment=new DialogFragment(); // dialogFragment clasidan obect olmoqda
-                dialogFragment.show(getParentFragmentManager(),"fragment");
+                DialogFragment dialogFragment=new DialogFragment();// dialogFragment clasidan obect olmoqda
+
+                dialogFragment.show(getChildFragmentManager(),"fragment");
 
             }
         });
+
 
 
         return view;
